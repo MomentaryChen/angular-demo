@@ -1,4 +1,17 @@
 <nb-card>
+  <nb-card-header>
+    <h6>控制台</h6>
+  </nb-card-header>
+
+  <nb-card-body style="margin-left: 10px;">
+    <h6>學號:</h6>
+
+    <div style="margin-top: 10px">
+      <input nbButton type="button" value="確認" />
+    </div>
+  </nb-card-body>
+</nb-card>
+<nb-card>
   <nb-card-header>詳細資訊</nb-card-header>
   <nb-card-body>
     <table style="width:100%; border:1px #cccccc solid; border-collapse: collapse;" cellpadding="10" border='1'>
@@ -85,5 +98,15 @@
         <td>50</td>
       </tr>
     </table>
+  </nb-card-body>
+</nb-card>
+<nb-card>
+  <nb-card-header>Grade Chart</nb-card-header>
+  <nb-card-body>
+    <div class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+      </canvas>
+    </div>
   </nb-card-body>
 </nb-card>

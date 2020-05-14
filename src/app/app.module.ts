@@ -8,15 +8,15 @@ import { NbThemeModule, NbLayoutModule, NbA11yModule, NbSidebarModule, NbActions
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSidebarService } from '@nebular/theme';
 import { ChartsModule } from 'ng2-charts';
-import { GradeChartsComponent } from './grade-charts/grade-charts.component';
 import { DetailsComponent } from './details/details.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GradeChartsComponent,
-    DetailsComponent
+    DetailsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

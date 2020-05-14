@@ -6,36 +6,19 @@
       儀表板
     </h1>
     <nb-actions size="medium">
-      <nb-action routerLink="/gradeChart">
+      <nb-action (click)="swithGradesMenu()">
         <h5>成績</h5>
       </nb-action>
-      <nb-action routerLink="/details">
-        <h5>歷程變化</h5>
-      </nb-action>
-      <nb-action>
-        <h5>錯誤類型</h5>
+      <nb-action (click)="swithResultsMenu()">
+        <h5>學習分析</h5>
       </nb-action>
     </nb-actions>
   </nb-layout-header>
 
   <nb-sidebar>
-    <h6>控制台</h6>
-    <nb-card-body style="margin-left: 10px;">
-      <h6>學號:</h6>
-      <nb-select placeholder="Nothing selected" shape="round" size='small' style="width: 20%;">
-        <nb-option value="">Option empty</nb-option>
-        <nb-option value="0">Option 0</nb-option>
-        <nb-option value="1">Option 1</nb-option>
-        <nb-option value="2">Option 2</nb-option>
-        <nb-option value="3">Option 3</nb-option>
-        <nb-option value="4">Option 4</nb-option>
-      </nb-select>
-      <div style="margin-top: 10px">
-        <input nbButton type="button" value="確認" />
-      </div>
-    </nb-card-body>
-    <hr />
-    <nb-menu [items]="topics">
+    <nb-menu *ngIf='showGradesMenu' [items]="topics">
+    </nb-menu>
+    <nb-menu *ngIf='showResultsMenu' [items]="courses">
     </nb-menu>
   </nb-sidebar>
   <nb-layout-column>
