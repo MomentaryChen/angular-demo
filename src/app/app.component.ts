@@ -34,7 +34,7 @@ export class AppComponent {
   public courses: NbMenuItem[] = [
     {
       title: 'Python第一次上課 20/09',
-      link: './test',
+      link: './details',
     },
     {
       title: 'Python第二周09/27',
