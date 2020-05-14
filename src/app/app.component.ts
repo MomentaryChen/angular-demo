@@ -20,6 +20,7 @@ export class AppComponent {
       children: [
         {
           title: 'Python第一次上課 20/09',
+          children: [{ title: 'Hello World!' }, { title: '基本加法' }]
         },
         {
           title: 'Python第二周09/27',

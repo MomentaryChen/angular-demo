@@ -6,10 +6,10 @@
       儀表板
     </h1>
     <nb-actions size="medium">
-      <nb-action>
+      <nb-action routerLink="/gradeChart">
         <h5>成績</h5>
       </nb-action>
-      <nb-action>
+      <nb-action routerLink="/details">
         <h5>歷程變化</h5>
       </nb-action>
       <nb-action>
@@ -333,14 +333,6 @@
     </style>
     <router-outlet></router-outlet>
 
-    <!-- Footer -->
-    <footer>
-    </footer>
-
   </nb-layout-column>
-
-  <nb-layout-footer fixed>
-    <!-- Insert footer here -->
-  </nb-layout-footer>
 
 </nb-layout>

@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GradeChartsComponent } from './grade-charts/grade-charts.component';
+import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
   {
-    path: 'grades',
+    path: 'gradeChart',
     component: GradeChartsComponent,
-    data: { title: 'Heroes List' }
+    data: { title: 'Grades chart' }
+  },
+  {
+    path: 'details',
+    component: DetailsComponent,
+    data: { title: 'Details' }
   },
   {
     path: '',
-    redirectTo: '/grades',
+    redirectTo: '/gradeChart',
     pathMatch: 'full'
   },
 ];

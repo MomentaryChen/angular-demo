@@ -1,5 +1,10 @@
-<div class="chart-wrapper">
-  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
-  </canvas>
-</div>
+<nb-card>
+  <nb-card-header>Grade Chart</nb-card-header>
+  <nb-card-body>
+    <div class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+      </canvas>
+    </div>
+  </nb-card-body>
+</nb-card>

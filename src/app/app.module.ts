@@ -9,12 +9,14 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSidebarService } from '@nebular/theme';
 import { ChartsModule } from 'ng2-charts';
 import { GradeChartsComponent } from './grade-charts/grade-charts.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GradeChartsComponent
+    GradeChartsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
