@@ -7,10 +7,12 @@
             <h6>控制台</h6>
           </nb-card-header>
           <nb-card-body>
+            <label>問題: </label><span>{{problem}}</span>
+            <br />
             <label>學號: </label>
             <input type="text" fieldSize="large" nbInput id="search" class="search-input" shape="semi-round"
-              placeholder="ID">
-            <button nbButton status="basic">確認</button>
+              placeholder="ID" (keyup)="id=$event.target.value">
+            <button nbButton status="basic" (click)='searchRecords()'>確認</button>
           </nb-card-body>
         </nb-card>
         <nb-card>

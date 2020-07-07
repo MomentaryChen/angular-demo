@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
   problem: string = '';
+  id: string;
   constructor(private detailsService: DetailsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -45,5 +46,16 @@ export class DetailsComponent implements OnInit {
     { backgroundColor: "blue" },
     { backgroundColor: "yellow" }
   ];
+
+  public searchRecords() {
+    console.log(this.id);
+    if (this.id && this.id !== null) {
+      this.detailsService.getRecords(this.id, this.problem).subscribe(
+        (results) => {
+          console.log(results);
+        }
+      )
+    }
+  }
 
 }
