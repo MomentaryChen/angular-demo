@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { DetailsService } from './details.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -8,22 +10,33 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
-  constructor() { }
+  assignmentList = []
+  problem: string = '';
+  constructor(private detailsService: DetailsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.problem = params['problem'];
+      this.detailsService.getErrorTypeMsg(this.problem).subscribe(
+        (results) => {
+          console.log(results);
+          this.errorTypeMsgLabels = results.ename;
+          this.errorTypeMsgData.push({ data: results.count, label: 'Error Type' });
+        }
+      )
+    });
   }
 
   barChartOptions: ChartOptions = {
     responsive: true
   };
-  barChartLabels: Label[] = ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'];
+  errorTypeMsgLabels: Label[];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
 
-  barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33, 45, 37, 60, 70, 46, 33, 45, 37, 60, 70, 46, 33], label: 'Best Grades' }
+  errorTypeMsgData: ChartDataSets[] = [
+    // { data: [45, 37, 60, 70, 46, 33, 45, 37, 60, 70, 46, 33, 45, 37, 60, 70, 46, 33], label: 'Error Type' }
   ];
 
   public colors = [

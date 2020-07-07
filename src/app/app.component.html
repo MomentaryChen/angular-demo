@@ -6,19 +6,19 @@
       儀表板
     </h1>
     <nb-actions size="medium">
-      <nb-action (click)="swithGradesMenu()">
+      <nb-action (click)="swithGradesMenu()" link='/errorTypeChart'>
         <h5>成績</h5>
       </nb-action>
-      <nb-action (click)="swithResultsMenu()">
+      <nb-action (click)="swithResultsMenu()" lint='/details'>
         <h5>學習分析</h5>
       </nb-action>
     </nb-actions>
   </nb-layout-header>
 
   <nb-sidebar>
-    <nb-menu *ngIf='showGradesMenu' [items]="topics">
+    <nb-menu *ngIf='showGradesMenu' [items]="courses">
     </nb-menu>
-    <nb-menu *ngIf='showResultsMenu' [items]="courses">
+    <nb-menu *ngIf='showResultsMenu' [items]="coursesAndProblems">
     </nb-menu>
   </nb-sidebar>
   <nb-layout-column>
