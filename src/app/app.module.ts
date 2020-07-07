@@ -11,11 +11,13 @@ import { ChartsModule } from 'ng2-charts';
 import { DetailsComponent } from './details/details.component';
 import { TestComponent } from './test/test.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GradeComponent } from './grade/grade.component';
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
     TestComponent,
+    GradeComponent,
   ],
   imports: [
     BrowserModule,

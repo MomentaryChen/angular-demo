@@ -17,21 +17,9 @@ export class AppComponent {
     private router: Router) {
   }
 
-  public coursesAndProblems: NbMenuItem[] = [
-    {
-      title: 'Python第一次上課 20/09',
-      children: [{
-        title: 'Hello World!',
-        link: './ga',
-      }]
-    }];
+  public coursesAndProblems: NbMenuItem[] = [];
 
-  public courses: NbMenuItem[] = [
-    {
-      title: 'Python第一次上課 20/09',
-      link: './details',
-    }
-  ];
+  public courses: NbMenuItem[] = [];
 
   ngOnInit(): void {
     this.appService.getAssignmentList().subscribe(
@@ -60,6 +48,7 @@ export class AppComponent {
                 link: `./details?problem=${element.assignment}`
               }
             )
+            console.log(this.coursesAndProblems);
           }
         )
       }
@@ -69,12 +58,12 @@ export class AppComponent {
   public swithGradesMenu() {
     this.showGradesMenu = true;
     this.showResultsMenu = false;
-    this.router.navigate(['./errorTypeChart']);
+    this.router.navigate(['./grade']);
   }
 
   public swithResultsMenu() {
     this.showGradesMenu = false;
     this.showResultsMenu = true;
-    this.router.navigate([`./details`, this.courses[0].title]);
+    this.router.navigate([`./details`, this.coursesAndProblems[0].children[0].title]);
   }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { TestComponent } from './test/test.component';
-import { ErrorTypeChartComponent } from './error-type-chart/error-type-chart.component';
+import { GradeComponent } from './grade/grade.component';
 
 const routes: Routes = [
   {
@@ -16,13 +16,13 @@ const routes: Routes = [
     data: { title: 'Details' }
   },
   {
-    path: 'errorTypeChart',
-    component: ErrorTypeChartComponent,
-    data: { title: 'Error Type Chart' }
+    path: 'grade',
+    component: GradeComponent,
+    data: { title: 'Grade' }
   },
   {
     path: '',
-    redirectTo: '/details',
+    redirectTo: '/grade',
     pathMatch: 'full'
   },
 ];

@@ -10,7 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  assignmentList = []
   problem: string = '';
   constructor(private detailsService: DetailsService, private route: ActivatedRoute) { }
 
@@ -20,8 +19,9 @@ export class DetailsComponent implements OnInit {
       this.detailsService.getErrorTypeMsg(this.problem).subscribe(
         (results) => {
           console.log(results);
-          this.errorTypeMsgLabels = results.ename;
-          this.errorTypeMsgData.push({ data: results.count, label: 'Error Type' });
+          this.errorTypeMsgLabels = results[0].ename;
+          this.errorTypeMsgData = [];
+          this.errorTypeMsgData.push({ data: results[0].count, label: 'Error Type' });
         }
       )
     });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorTypeChartComponent } from './error-type-chart.component';
+import { GradeComponent } from './grade.component';
 
-describe('ErrorTypeChartComponent', () => {
-  let component: ErrorTypeChartComponent;
-  let fixture: ComponentFixture<ErrorTypeChartComponent>;
+describe('GradeComponent', () => {
+  let component: GradeComponent;
+  let fixture: ComponentFixture<GradeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorTypeChartComponent ]
+      declarations: [ GradeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorTypeChartComponent);
+    fixture = TestBed.createComponent(GradeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
