@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../environments/environment'
+const Host = environment.host;
 @Injectable({
   providedIn: 'root'
 })
 export class DetailsService {
-
+  ErrorTypeMsgAPI = `${Host}/GetErrorTypeMsg`;
+  CodeDiffAPI = `${Host}/GetCodeDiff`;
   constructor(private http: HttpClient) { }
-  ErrorTypeMsgAPI = `http://140.134.26.87:10012/GetErrorTypeMsg`;
-  CodeDiffAPI = `http://140.134.26.87:10012/GetCodeDiff`;
+
   getErrorTypeMsg(problem: string): Observable<any> {
 
     let params = new HttpParams();
