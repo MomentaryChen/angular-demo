@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbA11yModule, NbTabsetModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbCardModule, NbSelectModule, NbAccordionModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbAlertModule, NbA11yModule, NbTabsetModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbCardModule, NbSelectModule, NbAccordionModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSidebarService } from '@nebular/theme';
 import { ChartsModule } from 'ng2-charts';
@@ -34,7 +34,8 @@ import { GradeComponent } from './grade/grade.component';
     ChartsModule,
     NbMenuModule.forRoot(),
     HttpClientModule,
-    NbTabsetModule
+    NbTabsetModule,
+    NbAlertModule,
   ],
   providers: [NbSidebarService],
   bootstrap: [AppComponent]

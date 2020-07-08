@@ -4,43 +4,62 @@
       <nb-tab tabTitle="歷程記錄">
         <nb-card>
           <nb-card-header>
-            <h6>控制台</h6>
+            <h3>控制台</h3>
           </nb-card-header>
           <nb-card-body>
-            <label>問題: </label><span>{{problem}}</span>
+            <label class='h6'>問題: </label><span>{{problem}}</span>
             <br />
-            <label>學號: </label>
+            <label class='h6'>學號: </label>
             <input type="text" fieldSize="large" nbInput id="search" class="search-input" shape="semi-round"
               placeholder="ID" (keyup)="id=$event.target.value">
             <button nbButton status="basic" (click)='searchRecords()'>確認</button>
+            <div style="color:red" *ngIf="records && records.hasOwnProperty('error')">{{records.error}}</div>
           </nb-card-body>
         </nb-card>
-        <nb-card>
-          <nb-card-header>詳細資訊</nb-card-header>
+        <nb-card *ngIf="records && records.hasOwnProperty('total_count')">
+          <nb-card-header>
+            <h3>詳細資訊</h3>
+          </nb-card-header>
+          <nb-card-body class="example-items-rows">
+            <button nbButton outline status="primary" (click)='subCount()'>Pre</button>
+            <button nbButton outline status="primary" (click)='addCount()'>Next</button>
+            　現在位置：{{count}}　全部歷程變化：{{records.total_count}}
+          </nb-card-body>
           <nb-card-body>
-            <div style="margin-top: 10px">
-              <input nbButton type="button" value="上一頁" />
-              <input nbButton type="button" value="下一頁" />
-            </div>
-            <table style="width:100%; border:1px #cccccc solid; border-collapse: collapse;" cellpadding="10" border='1'>
+            <table style="width:100%; border:1px #cccccc solid; border-collapse: collapse;" border='1'>
               <tr>
                 <th style="width:30%">程式碼1</th>
                 <th style="width:30%">程式碼2</th>
                 <th style="width:30%">歷程變化</th>
               </tr>
-              <tr style="margin-top: 2px;">
-                <td>
-                  50
+              <tr style="margin-top: 5px;">
+                <td valign="top">
+                  <ng-container *ngFor='let code of records.diff;let recordIndex=index;'>
+                    <div>{{recordIndex + 1}}. {{code}}</div>
+                  </ng-container>
                 </td>
-                <td>50</td>
-                <td>50</td>
+                <td valign="top">
+                  <ng-container *ngFor='let code of records.code2;let recordIndex=index;'>
+                    <div>{{recordIndex + 1}}. {{code}}</div>
+                  </ng-container>
+                </td>
+                <td valign="top">
+                  <ng-container *ngFor='let code of records.diff;let recordIndex=index;'>
+                    <div [ngClass]="{
+                      'add': code[0]=== '+',
+                      'sub': code[0]=== '-'
+                    }">{{recordIndex + 1}}. {{code}}</div>
+                  </ng-container>
+                </td>
               </tr>
             </table>
           </nb-card-body>
         </nb-card>
       </nb-tab>
       <nb-tab tabTitle="圖表">
-        <nb-card-header>Problem: {{problem}}</nb-card-header>
+        <nb-card-header>
+          <h3>問題:</h3>{{problem}}
+        </nb-card-header>
         <nb-card *ngIf='errorTypeMsgLabels'>
           <nb-card-body>
             <div class="chart-wrapper">

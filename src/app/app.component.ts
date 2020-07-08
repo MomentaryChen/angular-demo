@@ -48,7 +48,6 @@ export class AppComponent {
                 link: `./details?problem=${element.assignment}`
               }
             )
-            console.log(this.coursesAndProblems);
           }
         )
       }

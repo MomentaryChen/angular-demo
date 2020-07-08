@@ -12,6 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   problem: string = '';
   id: string;
+  count: number = 1;
+  totalCount: number = 0;
+  records: any;
   constructor(private detailsService: DetailsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,7 +22,6 @@ export class DetailsComponent implements OnInit {
       this.problem = params['problem'];
       this.detailsService.getErrorTypeMsg(this.problem).subscribe(
         (results) => {
-          console.log(results);
           this.errorTypeMsgLabels = results[0].ename;
           this.errorTypeMsgData = [];
           this.errorTypeMsgData.push({ data: results[0].count, label: 'Error Type' });
@@ -48,14 +50,29 @@ export class DetailsComponent implements OnInit {
   ];
 
   public searchRecords() {
-    console.log(this.id);
+    if (!this.id) this.records = { error: '請輸入學號' };
     if (this.id && this.id !== null) {
-      this.detailsService.getRecords(this.id, this.problem).subscribe(
+      this.detailsService.getRecords(this.id, this.problem, this.count - 1).subscribe(
         (results) => {
+          this.records = results;
           console.log(results);
         }
       )
     }
+  }
+
+  addCount() {
+    if (this.count < this.records.total_count) {
+      this.count++;
+    }
+    this.searchRecords();
+  }
+
+  subCount() {
+    if (this.count !== 1) {
+      this.count--;
+    }
+    this.searchRecords();
   }
 
 }

@@ -18,11 +18,11 @@ export class DetailsService {
     return this.http.post(this.ErrorTypeMsgAPI + `?problem=${problem}`, body);
   }
 
-  getRecords(id: string, problem: string): Observable<any> {
+  getRecords(id: string, problem: string, count: number): Observable<any> {
 
     let params = new HttpParams();
     const body = JSON.stringify(params);
-    return this.http.post(this.CodeDiffAPI + `?nid=${id}&problem=problem_2_bmi`, body);
+    return this.http.post(this.CodeDiffAPI + `?nid=${id}&problem=${problem}&count=${count}`, body);
   }
 
 }
