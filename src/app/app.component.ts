@@ -19,7 +19,10 @@ export class AppComponent {
 
   public coursesAndProblems: NbMenuItem[] = [];
 
-  public courses: NbMenuItem[] = [];
+  public homework: NbMenuItem[] = []
+  public courses: NbMenuItem[] = [{
+    title: "1081Python"
+  }];
 
   ngOnInit(): void {
     this.appService.getAssignmentList().subscribe(
@@ -42,10 +45,9 @@ export class AppComponent {
                 children: problem
               }
             )
-            this.courses.push(
+            this.homework.push(
               {
-                title: element.assignment,
-                link: `./details?problem=${element.assignment}`
+                title: element.assignment
               }
             )
           }

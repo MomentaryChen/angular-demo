@@ -34,7 +34,7 @@
               </tr>
               <tr style="margin-top: 5px;">
                 <td valign="top">
-                  <ng-container *ngFor='let code of records.diff;let recordIndex=index;'>
+                  <ng-container *ngFor='let code of records.code1;let recordIndex=index;'>
                     <div>{{recordIndex + 1}}. {{code}}</div>
                   </ng-container>
                 </td>
@@ -57,10 +57,10 @@
         </nb-card>
       </nb-tab>
       <nb-tab tabTitle="圖表">
-        <nb-card-header>
-          <h3>問題:</h3>{{problem}}
-        </nb-card-header>
         <nb-card *ngIf='errorTypeMsgLabels'>
+          <nb-card-header>
+            <label class='h6'>問題: </label>{{problem}}
+          </nb-card-header>
           <nb-card-body>
             <div class="chart-wrapper">
               <canvas baseChart [datasets]="errorTypeMsgData" [labels]="errorTypeMsgLabels" [options]="barChartOptions"

@@ -1,1 +1,19 @@
-<p>grade works!</p>
+<nb-card *ngIf='grade'>
+  <nb-card-header>
+    <h3>{{grade.course_id}}</h3>
+  </nb-card-header>
+  <nb-card-body>
+    <table style="width:100%; border:1px #cccccc solid; border-collapse: collapse;" border='1'>
+      <tr>
+        <th>名稱</th>
+        <th>NID</th>
+        <th *ngFor='let assignment of grade[0].assignment_list'>{{assignment}}</th>
+      </tr>
+      <tr *ngFor='let data of grade[0].data'>
+        <th>{{data.name}}</th>
+        <th>{{data.nid}}</th>
+        <th *ngFor='let assignment of grade[0].assignment_list'>{{data.assignment_score[assignment]}}</th>
+      </tr>
+    </table>
+  </nb-card-body>
+</nb-card>
